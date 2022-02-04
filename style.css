@@ -1,0 +1,16 @@
+.card {
+    width: 224px;
+    height: 250px;
+}
+
+#city-container {
+    width: 900px;
+}
+
+.card {
+    background-color: #2e5779;
+}
+
+.text {
+    color: rgb(226, 214, 214);
+}
