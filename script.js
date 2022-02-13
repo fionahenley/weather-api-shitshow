@@ -1,3 +1,5 @@
+
+//fetch date, format & days
 var fetchBtn = document.getElementById("fetch-button");
 var dayOne = moment().format("MM/DD/YYYY")
 var dayTwo = moment().add(1, 'days').format("MM/DD/YYYY")
@@ -6,6 +8,7 @@ var dayFour = moment().add(3, 'days').format("MM/DD/YYYY")
 var dayFive = moment().add(4, 'days').format("MM/DD/YYYY")
 var daySix = moment().add(5, 'days').format("MM/DD/YYYY")
 
+//city displays 
 var displayCity = document.getElementById("city");
 var displayTemp = document.getElementById("temp");
 var displayWind = document.getElementById("wind");
@@ -17,37 +20,38 @@ var displayDayFourDate = document.getElementById("dayFourDate");
 var displayDayFiveDate = document.getElementById("dayFiveDate");
 var displayDaySixDate = document.getElementById("daySixDate");
 
+//temperature
 var temp2 = document.getElementById("temp2");
 var temp3 = document.getElementById("temp3");
 var temp4 = document.getElementById("temp4");
 var temp5 = document.getElementById("temp5");
 var temp6 = document.getElementById("temp6");
-
+//wind
 var wind2 = document.getElementById("wind2");
 var wind3 = document.getElementById("wind3");
 var wind4 = document.getElementById("wind4");
 var wind5 = document.getElementById("wind5");
 var wind6 = document.getElementById("wind6");
-
+//humidity
 var humid2 = document.getElementById("humid2");
 var humid3 = document.getElementById("humid3");
 var humid4 = document.getElementById("humid4");
 var humid5 = document.getElementById("humid5");
 var humid6 = document.getElementById("humid6");
 
-
+//fetch API
 $('#fetch-button').on('click', function() {
   
   var city = $('#enter-city').val(); 
 
-  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
+  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=fa57fae1d4c98167f0f54cf7a0c37d24' + city + '&units=imperial&appid=fa57fae1d4c98167f0f54cf7a0c37d24';
   
   searchWeather(requestUrl);
 });
 
 $('.fav').on('click', function() {
   var city = $(this).text();
-  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
+  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=fa57fae1d4c98167f0f54cf7a0c37d24' + city + '&units=imperial&appid=fa57fae1d4c98167f0f54cf7a0c37d24';
   searchWeather(requestUrl);
 
 });
@@ -63,7 +67,7 @@ fetch(requestUrl)
   console.log(data);
 
 
-
+//display in each box
   displayCity.innerHTML = (data.city.name);
   displayHumidity.innerHTML = ("Humidty: " + data.list[0].main.humidity);
   displayTemp.innerHTML = ("Temp: " + data.list[0].main.temp + "°F");
@@ -79,76 +83,76 @@ fetch(requestUrl)
   localStorage.setItem("icon1", "<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png>") //set to local storage
 
   console.log(data.city.name)  
-
+//day two
   displayDayTwoDate.innerHTML = dayTwo;
   $("#icon2").html("<img src='http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
   temp2.innerHTML= ("Temp: " + data.list[2].main.temp + "°F");
   wind2.innerHTML= ("Wind: " + data.list[2].wind.speed);
   humid2.innerHTML= ("Humidity: " + data.list[2].main.humidity);
 
-  localStorage.setItem("humid2", data.list[2].main.humidity); //set to local storage
-  localStorage.setItem("temp2", data.list[2].main.temp+"°F"); //set to local storage
-  localStorage.setItem("wind2", data.list[2].wind.speed); //set to local storage
-  localStorage.setItem("date2", dayTwo); //set to local storage
-  localStorage.setItem("icon2", "<img src='http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png>") //set to local storage
+  localStorage.setItem("humid2", data.list[2].main.humidity); 
+  localStorage.setItem("temp2", data.list[2].main.temp+"°F"); 
+  localStorage.setItem("wind2", data.list[2].wind.speed); 
+  localStorage.setItem("date2", dayTwo); 
+  localStorage.setItem("icon2", "<img src='http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png>") 
 
 
 
-
+//day three
   displayDayThreeDate.innerHTML = dayThree;
-  $("#icon3").html("<img src='http://openweathermap.org/img/w/" + data.list[10].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+  $("#icon3").html("<img src='http://openweathermap.org/img/w/" + data.list[10].weather[0].icon + ".png' alt='Icon weather.'>");
   temp3.innerHTML= ("Temp: " + data.list[10].main.temp + "°F");
   wind3.innerHTML= ("Wind: " + data.list[10].wind.speed);
   humid3.innerHTML= ("Humidity: " + data.list[10].main.humidity);
 
-  localStorage.setItem("humid3", data.list[10].main.humidity); //set to local storage
-  localStorage.setItem("temp3", data.list[10].main.temp); //set to local storage
-  localStorage.setItem("wind3", data.list[10].wind.speed); //set to local storage
-  localStorage.setItem("date3", dayThree); //set to local storage
+  localStorage.setItem("humid3", data.list[10].main.humidity); 
+  localStorage.setItem("temp3", data.list[10].main.temp); 
+  localStorage.setItem("wind3", data.list[10].wind.speed);
+  localStorage.setItem("date3", dayThree); 
   localStorage.setItem("icon3", "<img src='http://openweathermap.org/img/w/" + data.list[10].weather[0].icon + ".png>") //set to local storage
 
 
 
-
+//day four
   displayDayFourDate.innerHTML = dayFour;
-  $("#icon4").html("<img src='http://openweathermap.org/img/w/" + data.list[18].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+  $("#icon4").html("<img src='http://openweathermap.org/img/w/" + data.list[18].weather[0].icon + ".png' alt='Icon weather.'>");
   temp4.innerHTML= ("Temp: " + data.list[18].main.temp + "°F");
   wind4.innerHTML= ("Wind: " + data.list[18].wind.speed);
   humid4.innerHTML= ("Humidity: " + data.list[18].main.humidity);
 
-  localStorage.setItem("humid4", data.list[18].main.humidity); //set to local storage
-  localStorage.setItem("temp4", data.list[18].main.temp); //set to local storage
-  localStorage.setItem("wind4", data.list[18].wind.speed); //set to local storage
-  localStorage.setItem("date4", dayFour); //set to local storage
+  localStorage.setItem("humid4", data.list[18].main.humidity); 
+  localStorage.setItem("temp4", data.list[18].main.temp); 
+  localStorage.setItem("wind4", data.list[18].wind.speed); 
+  localStorage.setItem("date4", dayFour); 
   localStorage.setItem("icon4", "<img src='http://openweathermap.org/img/w/" + data.list[18].weather[0].icon + ".png>") //set to local storage
 
 
-
+//day five
   displayDayFiveDate.innerHTML = dayFive;
-  $("#icon5").html("<img src='http://openweathermap.org/img/w/" + data.list[26].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+  $("#icon5").html("<img src='http://openweathermap.org/img/w/" + data.list[26].weather[0].icon + ".png' alt='Icon weather.'>");
   temp5.innerHTML= ("Temp: " + data.list[26].main.temp + "°F");
   wind5.innerHTML= ("Wind: " + data.list[26].wind.speed);
   humid5.innerHTML= ("Humidity: " + data.list[26].main.humidity);
 
 
-  localStorage.setItem("humid5", data.list[26].main.humidity); //set to local storage
-  localStorage.setItem("temp5", data.list[26].main.temp+ "°F"); //set to local storage
-  localStorage.setItem("wind5", data.list[26].wind.speed); //set to local storage
-  localStorage.setItem("date5", dayFive); //set to local storage
+  localStorage.setItem("humid5", data.list[26].main.humidity); 
+  localStorage.setItem("temp5", data.list[26].main.temp+ "°F"); 
+  localStorage.setItem("wind5", data.list[26].wind.speed); 
+  localStorage.setItem("date5", dayFive); 
   localStorage.setItem("icon5", "<img src='http://openweathermap.org/img/w/" + data.list[26].weather[0].icon + ".png>") //set to local storage
 
 
-  
+  //day six
   displayDaySixDate.innerHTML = daySix;
-  $("#icon6").html("<img src='http://openweathermap.org/img/w/" + data.list[34].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+  $("#icon6").html("<img src='http://openweathermap.org/img/w/" + data.list[34].weather[0].icon + ".png' alt='Icon weather.'>");
   temp6.innerHTML= ("Temp: " + data.list[34].main.temp + "°F");
   wind6.innerHTML= ("Wind: " + data.list[34].wind.speed);
   humid6.innerHTML= ("Humidity: " + data.list[34].main.humidity);
 
-  localStorage.setItem("humid6", data.list[34].main.humidity); //set to local storage
-  localStorage.setItem("temp6", data.list[34].main.temp); //set to local storage
-  localStorage.setItem("wind6", data.list[34].wind.speed); //set to local storage
-  localStorage.setItem("date6", daySix); //set to local storage
+  localStorage.setItem("humid6", data.list[34].main.humidity); 
+  localStorage.setItem("temp6", data.list[34].main.temp); 
+  localStorage.setItem("wind6", data.list[34].wind.speed); 
+  localStorage.setItem("date6", daySix); 
   localStorage.setItem("icon6", "<img src='http://openweathermap.org/img/w/" + data.list[34].weather[0].icon + ".png>") //set to local storage
 
 });  
@@ -262,5 +266,6 @@ displayDaySixDate.innerHTML = displayDay6;
 }
 
 getVal();
+
 
 
