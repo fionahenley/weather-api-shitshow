@@ -1,3 +1,5 @@
+
+//fetch date, format & days
 var fetchBtn = document.getElementById("fetch-button");
 var dayOne = moment().format("MM/DD/YYYY")
 var dayTwo = moment().add(1, 'days').format("MM/DD/YYYY")
@@ -6,6 +8,7 @@ var dayFour = moment().add(3, 'days').format("MM/DD/YYYY")
 var dayFive = moment().add(4, 'days').format("MM/DD/YYYY")
 var daySix = moment().add(5, 'days').format("MM/DD/YYYY")
 
+//city displays 
 var displayCity = document.getElementById("city");
 var displayTemp = document.getElementById("temp");
 var displayWind = document.getElementById("wind");
@@ -17,25 +20,26 @@ var displayDayFourDate = document.getElementById("dayFourDate");
 var displayDayFiveDate = document.getElementById("dayFiveDate");
 var displayDaySixDate = document.getElementById("daySixDate");
 
+//temperature
 var temp2 = document.getElementById("temp2");
 var temp3 = document.getElementById("temp3");
 var temp4 = document.getElementById("temp4");
 var temp5 = document.getElementById("temp5");
 var temp6 = document.getElementById("temp6");
-
+//wind
 var wind2 = document.getElementById("wind2");
 var wind3 = document.getElementById("wind3");
 var wind4 = document.getElementById("wind4");
 var wind5 = document.getElementById("wind5");
 var wind6 = document.getElementById("wind6");
-
+//humidity
 var humid2 = document.getElementById("humid2");
 var humid3 = document.getElementById("humid3");
 var humid4 = document.getElementById("humid4");
 var humid5 = document.getElementById("humid5");
 var humid6 = document.getElementById("humid6");
 
-
+//fetch API
 $('#fetch-button').on('click', function() {
   
   var city = $('#enter-city').val(); 
@@ -63,7 +67,7 @@ fetch(requestUrl)
   console.log(data);
 
 
-
+//display in each box
   displayCity.innerHTML = (data.city.name);
   displayHumidity.innerHTML = ("Humidty: " + data.list[0].main.humidity);
   displayTemp.innerHTML = ("Temp: " + data.list[0].main.temp + "°F");
@@ -79,7 +83,7 @@ fetch(requestUrl)
   localStorage.setItem("icon1", "<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png>") //set to local storage
 
   console.log(data.city.name)  
-
+//day two
   displayDayTwoDate.innerHTML = dayTwo;
   $("#icon2").html("<img src='http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
   temp2.innerHTML= ("Temp: " + data.list[2].main.temp + "°F");
@@ -91,10 +95,14 @@ fetch(requestUrl)
   localStorage.setItem("wind2", data.list[2].wind.speed); 
   localStorage.setItem("date2", dayTwo); 
   localStorage.setItem("icon2", "<img src='http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png>") 
+<<<<<<< HEAD:assets/script.js
+
+=======
+>>>>>>> e7f9ec0408b405057cf8194ce9ddbe13f3c8804e:script.js
 
 
 
-
+//day three
   displayDayThreeDate.innerHTML = dayThree;
   $("#icon3").html("<img src='http://openweathermap.org/img/w/" + data.list[10].weather[0].icon + ".png' alt='Icon weather.'>");
   temp3.innerHTML= ("Temp: " + data.list[10].main.temp + "°F");
@@ -109,7 +117,7 @@ fetch(requestUrl)
 
 
 
-
+//day four
   displayDayFourDate.innerHTML = dayFour;
   $("#icon4").html("<img src='http://openweathermap.org/img/w/" + data.list[18].weather[0].icon + ".png' alt='Icon weather.'>");
   temp4.innerHTML= ("Temp: " + data.list[18].main.temp + "°F");
@@ -123,7 +131,7 @@ fetch(requestUrl)
   localStorage.setItem("icon4", "<img src='http://openweathermap.org/img/w/" + data.list[18].weather[0].icon + ".png>") //set to local storage
 
 
-
+//day five
   displayDayFiveDate.innerHTML = dayFive;
   $("#icon5").html("<img src='http://openweathermap.org/img/w/" + data.list[26].weather[0].icon + ".png' alt='Icon weather.'>");
   temp5.innerHTML= ("Temp: " + data.list[26].main.temp + "°F");
@@ -138,7 +146,7 @@ fetch(requestUrl)
   localStorage.setItem("icon5", "<img src='http://openweathermap.org/img/w/" + data.list[26].weather[0].icon + ".png>") //set to local storage
 
 
-  
+  //day six
   displayDaySixDate.innerHTML = daySix;
   $("#icon6").html("<img src='http://openweathermap.org/img/w/" + data.list[34].weather[0].icon + ".png' alt='Icon weather.'>");
   temp6.innerHTML= ("Temp: " + data.list[34].main.temp + "°F");
@@ -262,5 +270,6 @@ displayDaySixDate.innerHTML = displayDay6;
 }
 
 getVal();
+
 
 
