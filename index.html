@@ -1,111 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link hregit stf="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    
+    <link rel="stylesheet" href="/assets/style.css" />
     <title>Weather Dashboard</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Weather Dashboard</a>
-        </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather Dashboard</a>
+      </div>
     </nav>
 
-<div class="row" id="container">
-    <div class="cities col-3 pl-5">
+    <div class="row" id="container">
+      <div class="cities col-3 pl-5">
         <h1 class="m-2">Search for a City</h1>
-        <input id="enter-city" type="text" class="form-control mt-3" aria-label="Large" aria-describedby="inputGroup-sizing-sm">        
-        <button class="btn btn-primary btn-block d-block mt-3" id="fetch-button">Search</button>
-        <hr>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="austin">Austin</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="chicago">Chicago</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="new-york">New York</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="orlando">Orlando</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="san-francisco">San Francisco</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="seattle">Seattle</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="denver">Denver</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block d-block mt-3 fav" id="atlanta">Atlanta</button>
+        <input
+          id="enter-city"
+          type="text"
+          class="form-control mt-3"
+          aria-label="Large"
+          aria-describedby="inputGroup-sizing-sm"
+        />
+        <button
+          class="btn btn-primary btn-block d-block mt-3"
+          id="fetch-button"
+        >
+            
+          Search
+        </button>
+        <hr />
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="austin"
+        >
+             <!-- each major city -->
+          Austin
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="chicago"
+        >
+          Chicago
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="new-york"
+        >
+          New York
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="orlando"
+        >
+          Orlando
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="san-francisco"
+        >
+          San Francisco
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="seattle"
+        >
+          Seattle
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="denver"
+        >
+          Denver
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-block d-block mt-3 fav"
+          id="atlanta"
+        >
+          Atlanta
+        </button>
+      </div>
 
-    </div>
-
-        <div class="container col-9 pr-5">
-            <div class="cityTemp border border-dark p-2 mt-2">
-                <h4 id="dayOneDate"></h4>
-                <div id="icon1"></div>        
-                <h1 id="city">CITY</h1>
-                <p id="temp">Temp: Here</p>   
-                <p id="wind"></p>   
-                <p id="humid">humidity: Here</p>   
-             </div>
-             <h2 class="mt-5">5-Day Forecast</h2>
-
-            <div class="forecast  border border-dark p-2 mt-2 row m-1">
-
-                <div id="day2" class="card m-4">
-                    <h4 class="m-3 text" id="dayTwoDate">Day 2 Here</h4>
-                    <div id="icon2"></div>   
-                    <p class="ml-2 text-light" id="temp2">Temp</p>   
-                    <p class="ml-2 text-light" id="wind2">Wind</p>   
-                    <p class="ml-2 text-light" id="humid2">humidity</p>   
-                </div>
-
-                <div id="day3" class="card m-4">
-                    <h4 class="m-3 text" id="dayThreeDate">Day 3 Here</h4>
-                    <div id="icon3"></div>
-                    <p class="ml-2 text-light" id="temp3">Temp</p>   
-                    <p class="ml-2 text-light" id="wind3">Wind</p>   
-                    <p class="ml-2 text-light" id="humid3">humidity</p>   
-
-                </div>
-
-                <div id="day4" class="card m-4">
-                    <h4 class="m-3 text" id="dayFourDate">Day 4 Here</h4>
-                    <div id="icon4"></div>        
-                    <p class="ml-2 text-light" id="temp4">Temp</p>   
-                    <p class="ml-2 text-light" id="wind4">Wind</p>   
-                    <p class="ml-2 text-light" id="humid4">humidity</p>   
-
-
-                </div>
-                <div id="day5" class="card m-4">
-                    <h4 class="m-3 text" id="dayFiveDate">Day 5 Here</h4>
-                    <div id="icon5"></div>        
-                    <p class="ml-2 text-light" id="temp5">Temp</p>   
-                    <p class="ml-2 text-light" id="wind5">Wind</p>   
-                    <p class="ml-2 text-light" id="humid5">humidity</p>   
-
-
-                </div>
-                <div id="day6" class="card m-4">
-                    <h4 class="m-3 text" id="daySixDate">Day 6 Here</h4>
-                    <div id="icon6"></div>        
-                    <p class="ml-2 text-light" id="temp6">Temp</p>   
-                    <p class="ml-2 text-light" id="wind6">Wind</p>   
-                    <p class="ml-2 text-light" id="humid6">humidity</p>   
-
-
-                </div>
-
-            </div>
+      <div class="container col-9 pr-5">
+        <div class="cityTemp border border-dark p-2 mt-2">
+          <h4 id="dayOneDate"></h4>
+          <div id="icon1"></div>
+          <h1 id="city">CITY</h1>
+          <p id="temp">Temp: Here</p>
+          <p id="wind"></p>
+          <p id="humid">humidity: Here</p>
         </div>
-</div>
+        <h2 class="mt-5">5-Day Forecast</h2>
 
+        <div class="forecast border border-dark p-2 mt-2 row m-1">
+          <div id="day2" class="card m-4">
+            <h4 class="m-3 text" id="dayTwoDate">Day 2 Here</h4>
+            <div id="icon2"></div>
+            <p class="ml-2 text-light" id="temp2">Temp</p>
+            <p class="ml-2 text-light" id="wind2">Wind</p>
+            <p class="ml-2 text-light" id="humid2">humidity</p>
+          </div>
+
+          <div id="day3" class="card m-4">
+            <h4 class="m-3 text" id="dayThreeDate">Day 3 Here</h4>
+            <div id="icon3"></div>
+            <p class="ml-2 text-light" id="temp3">Temp</p>
+            <p class="ml-2 text-light" id="wind3">Wind</p>
+            <p class="ml-2 text-light" id="humid3">humidity</p>
+          </div>
+
+          <div id="day4" class="card m-4">
+            <h4 class="m-3 text" id="dayFourDate">Day 4 Here</h4>
+            <div id="icon4"></div>
+            <p class="ml-2 text-light" id="temp4">Temp</p>
+            <p class="ml-2 text-light" id="wind4">Wind</p>
+            <p class="ml-2 text-light" id="humid4">humidity</p>
+          </div>
+          <div id="day5" class="card m-4">
+            <h4 class="m-3 text" id="dayFiveDate">Day 5 Here</h4>
+            <div id="icon5"></div>
+            <p class="ml-2 text-light" id="temp5">Temp</p>
+            <p class="ml-2 text-light" id="wind5">Wind</p>
+            <p class="ml-2 text-light" id="humid5">humidity</p>
+          </div>
+          <div id="day6" class="card m-4">
+            <h4 class="m-3 text" id="daySixDate">Day 6 Here</h4>
+            <div id="icon6"></div>
+            <p class="ml-2 text-light" id="temp6">Temp</p>
+            <p class="ml-2 text-light" id="wind6">Wind</p>
+            <p class="ml-2 text-light" id="humid6">humidity</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <script src="script.js"></script>
-</body>
-
+    <script src="/assets/script.js"></script>
+  </body>
 </html>
