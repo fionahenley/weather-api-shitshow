@@ -44,14 +44,14 @@ $('#fetch-button').on('click', function() {
   
   var city = $('#enter-city').val(); 
 
-  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=fa57fae1d4c98167f0f54cf7a0c37d24' + city + '&units=imperial&appid=fa57fae1d4c98167f0f54cf7a0c37d24';
+  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=fa57fae1d4c98167f0f54cf7a0c37d24';
   
   searchWeather(requestUrl);
 });
 
 $('.fav').on('click', function() {
   var city = $(this).text();
-  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=fa57fae1d4c98167f0f54cf7a0c37d24' + city + '&units=imperial&appid=fa57fae1d4c98167f0f54cf7a0c37d24';
+  var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=fa57fae1d4c98167f0f54cf7a0c37d24';
   searchWeather(requestUrl);
 
 });
