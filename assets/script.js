@@ -95,10 +95,6 @@ fetch(requestUrl)
   localStorage.setItem("wind2", data.list[2].wind.speed); 
   localStorage.setItem("date2", dayTwo); 
   localStorage.setItem("icon2", "<img src='http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png>") 
-<<<<<<< HEAD:assets/script.js
-
-=======
->>>>>>> e7f9ec0408b405057cf8194ce9ddbe13f3c8804e:script.js
 
 
 
